@@ -10,3 +10,7 @@ node_modules
 # 임시 파일
 *.tmp
 *~
+
+# es5 소스
+dist
+public/dist
