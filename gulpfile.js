@@ -2,7 +2,7 @@ const gulp = require('gulp');
 
 // 걸프 의존성을 여기 씁니다.
 const babel = require('gulp-babel');
-const eslint = require('gulp-eslint')
+const eslint = require('gulp-eslint');
 
 gulp.task('default', function() {
     // ESLint를 실행합니다.
