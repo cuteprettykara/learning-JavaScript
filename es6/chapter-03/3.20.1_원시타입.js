@@ -6,17 +6,17 @@ a = 2;          // 원본의 값을 바꿈
 console.log(b); // 1. 사본의 값은 바뀌지 않음.
 
 
-// 또한 값 자체를 [복사]했으므로, 변수와 값은 일치합니다.
+// 또한 값 자체를 [복사]했으므로, [변수와 값은 일치]합니다.
 console.log(a === 2);   // true
 
 
 
 // 값 자체를 [전달]하므로 함수 안에서 변수의 값이 바뀌어도, 
 // 함수 외부에서는 바뀌지 않은 상태로 남습니다.
-/* function change(param) {
+function change(param) {
     param = 5;
 }
 
 a = 3;
 change(a);
-console.log(a);     // 3 */
+console.log(a);     // 3
