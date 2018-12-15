@@ -1,0 +1,27 @@
+특정 조건이 맞을 때만 루프 바디를 실행해야 할 때가 많습니다.
+반복문 안에 조건문을 써야 하는 경우입니다.
+
+while (funds > 1 && funds < 100) {
+    let totalBet = rand(1, funds);
+    if (totalBet === 13) {
+        console.log("Unlucky! Skip this round...");
+    } else {
+        // 플레이...
+    }
+}
+
+이런 경우를 제어문 중첩(nested control flow)이라 부릅니다.
+while 루프의 바디에서 할 일은 대부분 else 절에 들어있고,
+if절이 하는 일은 console.log를 호출하는 것뿐입니다.
+continue문을 써서 이 구조를 간결하게 만들 수 있습니다.
+
+while (funds > 1 && funds < 100) {
+    let totalBet = rand(1, funds);
+    if (totalBet === 13) {
+        console.log("Unlucky! Skip this round...");
+        continue;
+    } 
+    
+    // 플레이...
+    
+}

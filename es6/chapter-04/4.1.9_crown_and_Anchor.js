@@ -43,7 +43,7 @@ while (funds > 1 && funds < 100) {
     for (let roll = 0; roll < 3; roll++) {
         hand.push(randFace());
     }
-    console.log(`\thand: ${hand.join(',')}`);
+    console.log(`\thand: ${hand.join(', ')}`);
 
     // 그림을 맞추면 돈을 가져옵니다.
     let winnings = 0;
@@ -53,7 +53,7 @@ while (funds > 1 && funds < 100) {
     }
 
     funds = funds + winnings;
-    console.log(`/twinnings: ${winnings}`);
+    console.log(`\twinnings: ${winnings}`);
 }
 
 console.log(`\tending funds: ${funds}`);

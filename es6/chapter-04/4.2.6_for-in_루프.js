@@ -1,4 +1,8 @@
-// for..in 루프는 [객체]의 [프로퍼티]에 루프를 실행
+// for...in 루프는 [객체]의 [프로퍼티]에 루프를 실행
+// for(variable in object)
+//     statement
+
+
 const player = {
     name: 'Thomas',
     rank: 'Midshipman',
