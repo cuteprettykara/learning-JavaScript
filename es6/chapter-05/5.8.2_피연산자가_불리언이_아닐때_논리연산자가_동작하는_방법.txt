@@ -1,0 +1,8 @@
+피연산자가 불리언이 아니라면, [결과를 결정한 값]이 반환됩니다.
+
+// 논리 연산자의 이런 동작 방식을 활용하는 간편한 팁이 있습니다.
+const options = suppliedOptions || { name: "Default" }
+
+객체는 항상(빈 객체더라도) 참 같은 값으로 평가됩니다.
+따라서 suppliedOptions가 객체면 options는 suppliedOptions를 가리키게 됩니다.
+옵션이 제공되지 않으면, 즉 suppliedOptions가 null 또는 undefined라면 기본값을 갖게 됩니다.

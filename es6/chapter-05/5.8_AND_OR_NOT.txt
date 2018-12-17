@@ -1,0 +1,7 @@
+OR 연산자는 포괄적(inclusive) OR 이라 불리기도 합니다.
+
+* 포괄적(inclusive) OR      : 모두 true이면 true
+* 배타적(exclusive) OR (XOR): 모두 true이면 false
+
+자바스크립트에는 XOR에 해당하는 연산자가 없지만,
+나중에 설명할 비트 XOR는 있습니다.
