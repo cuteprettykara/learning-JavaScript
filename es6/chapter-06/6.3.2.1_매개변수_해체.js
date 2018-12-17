@@ -7,7 +7,11 @@ const o = {
     subject: "I",
     verb: "love",
     object: "JavaScript"
-}; */
+};
+
+console.log(getSentence(o));
+ */
+
 
 // 배열 해체
 function getSentence([subject, verb, object]) {

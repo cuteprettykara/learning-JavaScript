@@ -1,5 +1,7 @@
-// 함수 바디 안에는 특별한 읽기 전용 값인 this가 있습니다.
+// 함수 바디 안에는 특별한 [읽기 전용] 값인 this가 있습니다.
 // 일반적으로 this는 객체의 프로퍼티인 함수(= 메소드)에서 의미가 있습니다.
+
+// 메소드를 호출하면 this는 메소드를 소유하는 객체가 됩니다.
 const o = {
     name: "Wallace",
     speak() {return `My name is ${this.name}`;}
@@ -13,6 +15,7 @@ console.log(o.speak()); // "My name is Wallace"
 // 즉, this가 o에 묶인 이유는 
 // * speak가 o의 프로퍼티여서가 아니라,
 // * o에서 speak를 호출했기 때문입니다.
+
 // 같은 함수를 변수에 할당하면 어떻게 되는지 봅시다.
 const speak = o.speak;
 console.log(speak === o.speak); // true: 두 변수는 같은 함수를 가리킵니다.
