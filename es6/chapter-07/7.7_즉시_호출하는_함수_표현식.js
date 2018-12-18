@@ -24,3 +24,8 @@ const f= (function() {
 
 console.log(f());   // "`I have been called 1 tiem(s)."
 console.log(f());   // "`I have been called 2 tiem(s)."
+console.log(f());   // "`I have been called 3 tiem(s)."
+
+// ES6에서 블록 스코프 변수를 도입하면서 IIFE가 필요한 경우가 줄어들긴 했지만,
+// 여전히 매우 널리 쓰입니다.
+// 클로저를 만들고 클로저에서 무언가 반환받을 때에는 유용하게 쓸 수 있습니다.

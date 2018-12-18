@@ -12,3 +12,5 @@ function getBirthYear(user) {
     return new Date().getFullYear() - user.age;
 }
 
+greet(user);
+console.log(getBirthYear(user));
