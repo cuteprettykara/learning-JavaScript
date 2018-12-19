@@ -11,14 +11,14 @@ for (let suit of ['H', 'C', 'D', 'S']) {
 }
 
 // value가 2인 카드
-console.log(cards.filter(c => c.value === 2));
+// console.log(cards.filter(c => c.value === 2));
 // [ { suit: 'H', value: 2 },
 //   { suit: 'C', value: 2 },
 //   { suit: 'D', value: 2 },
 //   { suit: 'S', value: 2 } ]
 
 // 다이아몬드
-console.log(cards.filter(c => c.suit === 'D'));
+// console.log(cards.filter(c => c.suit === 'D'));
 // [ { suit: 'D', value: 0 },
 //   { suit: 'D', value: 1 },
 //   { suit: 'D', value: 2 },
@@ -35,7 +35,7 @@ console.log(cards.filter(c => c.suit === 'D'));
 //   { suit: 'D', value: 13 } ]
 
 // 킹, 퀸, 주니어
-console.log(cards.filter(c => c.value > 10));
+// console.log(cards.filter(c => c.value > 10));
 // [ { suit: 'H', value: 11 },
 //   { suit: 'H', value: 12 },
 //   { suit: 'H', value: 13 },

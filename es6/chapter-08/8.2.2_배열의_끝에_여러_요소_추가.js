@@ -5,4 +5,4 @@ const arr = [1, 2, 3];
 console.log(arr.concat(4, 5, 6));       //  [1, 2, 3, 4, 5, 6]. arr은 바뀌지 않습니다.
 console.log(arr.concat([4, 5, 6]));     //  [1, 2, 3, 4, 5, 6]. arr은 바뀌지 않습니다.
 console.log(arr.concat([4, 5], 6));     //  [1, 2, 3, 4, 5, 6]. arr은 바뀌지 않습니다.
-console.log(arr.concat([4, [5, 6]]));   //  [1, 2, 3, 4, 5, 6]. arr은 바뀌지 않습니다.
+console.log(arr.concat([4, [5, 6]]));   //  [1, 2, 3, 4, [5, 6]]. arr은 바뀌지 않습니다.

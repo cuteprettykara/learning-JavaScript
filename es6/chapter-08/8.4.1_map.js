@@ -12,5 +12,5 @@ console.log(names);         // ["Widget", "Gadget"]
 const prices = cart.map(x => x.price);
 console.log(prices);        // [9.95, 22.95]
 
-const discoutPrices = prices.map(x => x*0.8);
-console.log(discoutPrices); // [7.96, 18.36]
+const discountPrices = prices.map(x => x*0.8);
+console.log(discountPrices); // [7.96, 18.36]

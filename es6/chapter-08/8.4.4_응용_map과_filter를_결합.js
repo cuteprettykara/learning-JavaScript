@@ -24,10 +24,12 @@ function cardToString(c) {
 }
 
 // value가 2인 카드
-const x = cards.filter(c => c.value === 2)
-    .map(cardToString);
-console.log(x);     // [ '2♥', '2♣', '2♦', '2♠' ]
+// console.log(cards.filter(c => c.value === 2));
+// const x = cards.filter(c => c.value === 2)
+//     .map(cardToString);
+// console.log(x);     // [ '2♥', '2♣', '2♦', '2♠' ]
 
+console.log(cards.filter(c => c.suit === 'H' && c.value > 10));
 const y = cards.filter(c => c.suit === 'H' && c.value > 10)
     .map(cardToString);
 console.log(y);     // [ 'J♥', 'Q♥', 'K♥' ]

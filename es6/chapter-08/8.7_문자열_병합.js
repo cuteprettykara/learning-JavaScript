@@ -12,4 +12,9 @@ console.log(arr.join(' -- '));  // "1 --  -- hello --  -- true -- "
 // 이 때 빈 배열에 사용하면 빈 <li> 요소 하나만 나올 겁니다.
 const attributes = ["Nimble", "Perceptive", "Generous"];
 const html = '<ul><li>' + attributes.join('</li><li>') + '</li></ul>';
-console.log(html);  // <ul><li>Nimble</li><li>Perceptive</li><li>Generous</li></ul>
+console.log(html);  
+// <ul>
+//      <li>Nimble</li>
+//      <li>Perceptive</li>
+//      <li>Generous</li>
+//</ul>

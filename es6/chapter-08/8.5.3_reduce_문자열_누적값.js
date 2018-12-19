@@ -8,6 +8,9 @@ const words = [
 
 // 방법1: reduce 사용
 const longWords = words.reduce((a, w) => w.length > 6 ? a + " " + w : a, "").trim();
+// const longWords = words.reduce((a, w) => w.length > 6 ? a + " " + w : a, "");
 console.log(longWords);
 
 // 방법2: filter와 join 사용
+const longWords2 = words.filter(x => x.length > 6).join(' ');
+console.log(longWords2);
