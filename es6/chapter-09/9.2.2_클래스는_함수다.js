@@ -19,7 +19,7 @@ class ES6Car {} // 생성자는 의도적으로 생략합니다.
 function ES5Car() {}
 
 
-console.log(typeof ES5Car); // function
-console.log(typeof ES6Car); // function
+console.log(typeof ES5Car); // "function"
+console.log(typeof ES6Car); // "function"
 
 // ES6에서 클래스가 바뀐 것은 아닙니다. 단지 간편한 새 문법이 생겼을 뿐입니다.

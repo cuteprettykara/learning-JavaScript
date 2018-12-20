@@ -23,14 +23,22 @@ class Car {
     }
 }
 
-makeInsurable(Car.prototype);
-const car1 = new Car("Tesla", "Model S");
+/**************************************************************** */
+makeInsurable(Car.prototype);   // 와우! 이제 한 번만 호출하면 됩니다.
+/**************************************************************** */
 
+const car1 = new Car("Tesla", "Model S");
 car1.addInsurancyPolicy(new InsurancePolicy()); // works
+console.log(car1.isInusred());
+
+const car2 = new Car("Mazda", "3i");
+car2.addInsurancyPolicy(new InsurancePolicy()); // works
+console.log(car2.isInusred());
+
+
+
 
 // 이제 보험 관련 메소드들은 모두 [Car 클래스에 정의된 것처럼] 동작합니다.
-// 자바스크립트의 관점에선ㄴ 실제로 그렇습니다.
+// 자바스크립트의 관점에서는 실제로 그렇습니다.
 
 // 개발자의 관점에서는 중요한 두 클래스를 [관리하기 쉽게] 만들었습니다.
-// 자동차 회사에서 Car 클래스의 개발과 관리를 담당하고,
-// 보험 회사에서 InsurancePolicy 클래스와 makeInsurable 믹스인을 관리하게 됩니다.

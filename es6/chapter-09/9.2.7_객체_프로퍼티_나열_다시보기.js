@@ -37,6 +37,9 @@ for (const p in obj) {
 // sneaky: not recommended! (inherited)
 
 
+// name, isSuper, isSub 프로퍼티는 모두 인스턴스에 정의됐습니다.
+// (수퍼클래스의 생성자에서 선언한 프로퍼티는 서브클래스 인스턴스에도 정의됩니다)
+
 
 // Object.keys를 사용하면 프로토타입 체인에 정의된 프로퍼티를 나열하는 문제를 피할 수 있습니다.
 console.log('************************');

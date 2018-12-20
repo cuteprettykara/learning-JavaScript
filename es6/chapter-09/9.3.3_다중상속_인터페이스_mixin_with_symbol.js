@@ -1,3 +1,8 @@
+// 자동차 회사에서 Car 클래스의 개발과 관리를 담당하고,
+// 보험 회사에서 InsurancePolicy 클래스와 makeInsurable 믹스인을 관리하게 됩니다.
+// 두 회사의 업무가 충돌할 가능성을 와넞ㄴ히 없앤 건 아니지만,
+// 모두가 거대한 Car 클래스에 달라붙어 일하는 것보다는 낫습니다.
+
 // 물론 믹스인이 모든 문제를 해결해 주지는 않습니다.
 // 보험 회사에서 shift 메소드를 만들게 된다면 Car 클래스의 동작이 이상해질 겁니다.
 // instanceof 연산자로 보험에 가입할 수 있는 객체를 식별할 수도 없습니다.
@@ -36,10 +41,15 @@ class Car {
 }
 
 makeInsurable(Car.prototype);
+
 const car1 = new Car("Tesla", "Model S");
-
 car1[ADD_POLICY](new InsurancePolicy());
+console.log(car1[IS_INSURED]());
 
-// 심볼은 항상 고유하므로 믹스인이 Car 클래스의 기능과 충돌할 가능성은 없습ㄴ다.
+const car2 = new Car("Mazda", "3i");
+car2[ADD_POLICY](new InsurancePolicy());
+console.log(car2[IS_INSURED]());
+
+// 심볼은 항상 고유하므로 믹스인이 Car 클래스의 기능과 충돌할 가능성은 없습니다.
 // 쓰기가 조금 번거로울 수는 있겠지만, 훨씬 안전합니다.
 // 메소드 이름에는 일반적인 문자열을 쓰고, 데이터 프로퍼티에는 _POLICY 같은 심볼을 쓰는 절충안을 생각할 수도 있습니다.

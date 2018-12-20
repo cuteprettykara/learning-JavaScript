@@ -17,7 +17,7 @@ class Vehicle {
 
 class Car extends Vehicle {
     constructor() {
-        super();
+        super();        // 서브클래스에서는 이 함수를 반드시 호출해야 합니다.
         console.log("Car created.");
     }
     deployAirbags() {
@@ -35,8 +35,9 @@ c.addPassenger("Alice");
 c.addPassenger("Cameron");
 console.log(c.passengers);  // [ 'Alice', 'Cameron' ]
 
-v.deployAirbags();          // TypeError: v.deployAirbags is not a function
+// v.deployAirbags();          // TypeError: v.deployAirbags is not a function
 c.deployAirbags();
 
 // super()는 슈퍼클래스의 생성자를 호출하는 함수입니다.
 // 서브클래스에서는 이 함수를 반드시 호출해야 합니다.
+// 호출하지 않으면 에러가 일어납니다.
