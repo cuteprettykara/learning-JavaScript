@@ -23,12 +23,12 @@ console.log(userRoels.get(u1));  // "User"
 console.log(userRoels.has(u4));  // false
 console.log(userRoels.get(u4));  // undefined
 
-// 맵에 이미 존재하는 키에 set()을 호출하면 값이 교체됩니다.
+// // 맵에 이미 존재하는 키에 set()을 호출하면 값이 교체됩니다.
 console.log('******************');
 console.log(userRoels.get(u1)); // "User"
 userRoels.set(u1, 'Admin');
 console.log(userRoels.get(u1)); // "Admin"
 
-// size 프로퍼티는 맵의 요소 숫자를 반환합니다.
+// // size 프로퍼티는 맵의 요소 숫자를 반환합니다.
 console.log('******************');
 console.log(userRoels.size);    // 3

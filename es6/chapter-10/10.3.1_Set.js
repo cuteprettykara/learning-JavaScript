@@ -29,3 +29,5 @@ console.log('*************************');
 console.log(roles.delete("Admin"));  // true
 console.log(roles);                  // Set { 'User' }
 console.log(roles.delete("Admin"));  // false
+
+console.log('*************************');

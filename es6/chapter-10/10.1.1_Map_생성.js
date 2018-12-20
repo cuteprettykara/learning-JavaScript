@@ -1,3 +1,6 @@
+// 맵은 키와 값을 연결한다는 점에서 [객체]와 비슷하고,
+// 셋은 중복을 허용하지 않는다는 점만 제외하면 [배열]과 비슷합니다.
+
 // ES6 이전에는 키와 값을 연결하려면 객체를 사용해야 했습니다.
 // 하지만 객체를 이런 목적으로 사용하면 여러 가지 단점이 생깁니다.
 
@@ -21,6 +24,7 @@ const u4 = { name: 'James' };
 // userRoels.set(u1, 'User');
 // userRoels.set(u2, 'User');
 // userRoels.set(u3, 'Admin');
+// console.log(userRoels);
 // 애석하지만 제임스에게는 역할이 없습니다.
 
 
@@ -30,7 +34,7 @@ const u4 = { name: 'James' };
 //     .set(u1, 'User')
 //     .set(u2, 'User')
 //     .set(u3, 'Admin');
-
+// console.log(userRoels);
 
 // 방법 3: 생성자에 [배열의 배열]을 넘기는 형태로 써도 됩니다.
 const userRoels = new Map([
