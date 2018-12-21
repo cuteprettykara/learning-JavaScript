@@ -16,6 +16,7 @@ console.log(it.next()); // { value: 'c', done: true }
 // 이런 동작 방식이 정확하기는 하지만, 제너레이터를 사용할 때는 보통 done이 true이면
 // value 프로퍼티에 주의를 기울이지 않는다는 점을 염두에 두십시오.
 // 예를 들어 이 제너레이터를 for...of 루프에서 사용하면 c는 절대 출력되지 않습니다.
+
 // "a"와 "b"는 출력되지만 "c"는 출력되지 않습니다.
 for (const l of abc()) {
     console.log(l);

@@ -26,7 +26,7 @@ log.add("first day at sea");
 log.add("spotted whale");
 log.add("spotted another vessel");
 
-// 로그를 배열처럼 순회합니다.
+// 로그를 [배열처럼] 순회합니다.
 for (const entry of log) {
     console.log(`${entry.message} @ ${entry.timestamp}`);
 }
