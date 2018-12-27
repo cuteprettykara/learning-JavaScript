@@ -12,6 +12,15 @@ console.log(arr.sort());     // arr은 이제 [1, 2, 3, 4, 5] 입니다. */
 // * 음수: a를 b보다 낮은 색인으로 정렬
 // * 0   : X
 // * 양수: b를 a보다 낮은 색인으로 정렬
+
+// 반환값: a - b : 오름차순 정렬
+// 반환값: b - a : 내림차순 정렬
+
+// 반환값: a > b : 오름차순 정렬
+// 반환값: b > a : 내림차순 정렬
+
+// 참고: https://code.i-harness.com/ko-kr/q/16f7191
+
 const arr = [
     {name: "Suzanne"},
     {name: "Jim"},

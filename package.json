@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/cuteprettykara/learning-JavaScript#readme",
   "dependencies": {
+    "moment-timezone": "^0.5.23",
     "underscore": "^1.9.1"
   },
   "devDependencies": {
