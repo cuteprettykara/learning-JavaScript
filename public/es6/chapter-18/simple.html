@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Simple HTML</title>
+    <style>
+        .callout {
+            border: solid 1px #ff0080;
+            margin: 2px 4px;
+            padding: 2px 6px;
+        }
+
+        .code {
+            background: #ccc;
+            margin: 1px 2px;
+            padding: 1px 4px;
+            font-family: monospace;
+        }
+
+        .highlight {
+            background: #ff0;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Simple HTML</h1>
+    </header>
+    <div id="content">
+        <p>This is a <i>simple</i> HTML file.</p>
+        <div class="callout">
+            <p>This is as fancy as we'll get!</p>
+        </div>
+        <p>IDs (such as <span class="code">#content</span>)
+            are unique (there can only be one per page).</p>
+        <p>Classes (such as <span class="code">.callout</span>)
+            can be used on many elements.</p>
+        <div id="callout2" class="callout fancy">
+            <p>A single HTML element can have multiple classes.</p>
+        </div>
+        <button data-action="highlight" data-containing="unique">
+            Highlight paragraphs containing "unique"
+        </button>
+        <button data-action="removeHighlights">
+            Remove highlights
+        </button>
+        <div class="serverInfo">
+            Server is running on <span data-replace="platform">???</span>
+            with Node <span data-replace="nodeVersion">???</span>. It has
+            been up for <span data-replace="uptime">???</span> seconds.
+        </div>
+    </div>
+</body>
+<script src="18.4_get_메소드.js"></script>
+<script src="18.5_DOM_요소_쿼리.js"></script>
+<script src="18.6_DOM_요소_조작.js"></script>
+<script src="18.7_새_DOM_요소_만들기.js"></script>
+<script src="18.8_요소_스타일링.js"></script>
+<script src="18.9_데이터_속성.js"></script>
+<script src="18.10_이벤트.js"></script>
+<script src="18.11.2_Ajax.js"></script>
+</html>

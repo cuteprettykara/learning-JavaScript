@@ -1,0 +1,83 @@
+Ajax의 핵심 개념은 간단합니다.
+자바스크립트에서 HTTP 요청을 만들어 서버에 보내고 데이터를 받습니다.
+페이지를 불러오고 렌더링하는 부담이 줄어들므로 웹 애플리케이션이 훨씬 빨라집니다.
+
+Ajax를 사용하려면 서버가 필요합니다. ajaxServer.js
+const http = require('http');
+
+const server = http.createServer(function (req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origiin', '*');
+    res.end(JSON.stringify({
+        platform: process.platform,
+        nodeVersion: process.version,
+        uptime: Math.round(process.uptime())
+    }));
+});
+
+const port = 7070;
+server.listen(port, function() {
+    console.log(`Ajax server started on port ${port}`); 
+});
+
+이 코드는 운영체제와 노드.js의 버전, 서버 운영시간을 보고하는 매우 단순한 서버를 만듭니다.
+이 서버를 시작하려면 다음과 같이 입력하면 됩니다.
+
+$ node ajaxServer.js
+
+브라우저에서 http://localhost:7070/에 방문하면 서버가 출력하는 결과를 볼 수 있습니다.
+이제 서버가 생겼으니 샘플 HTML 페이지에서 Ajax 코드를 사용할 수 있습니다.
+문서 바디에 Ajax로 받아올 정보를 표시할 플레이스 홀더부터 만듭시다.
+
+<div class="serverInfo">
+    Server is running on <span data-replace="platform">???</span>
+    with Node <span data-replace="nodeVersion">???</span>. It has
+    been up for <span data-replace="uptime">???</span> seconds.
+</div>
+
+</body> 태그의 바로 앞에 다음 스크립트를 추가하십시오.
+
+<script>
+    function refreshServerInfo() {
+        const req = new XMLHttpRequest();
+        
+        req.addEventListener('load', function() {
+            // TODO: 값을 HTML에 삽입하는 것은 나중에 합시다.
+            console.log(this.responseText);
+        });
+
+        req.open('GET', 'http://localhost:7070', true);
+        req.send();
+    }
+
+    refreshServerInfo();
+</script> 
+
+예제를 실행하면 반환한 데이터가 콘솔에 기록됩니다.
+다음 단계는 이 데이터를 HTML에 삽입하는 겁니다.
+
+    req.addEventListener('load', function() {
+        // this.responseText는 JSON이 들어있는 문자열입니다.
+        // JSON.parse를 써서 문자열을 객체로 바꿉니다.
+        const data = JSON.parse(this.responseText);
+
+        // 클래스가 serverInfo인 <div>의 텍스트만 교체합니다.
+        const serverInfo = document.querySelector('.serverInfo');
+
+        Object.keys(data).forEach(p => {
+            // 텍스트를 교체할 요소를 찾습니다.
+            const replacements = serverInfo.querySelectorAll(`[ data-replace="${p}"]`);
+
+            // 서버에서 받은 값으로 텍스트를 교체합니다.
+            for (const r of replacements) {
+                r.textContent = data[p];
+            }
+        });
+    });
+
+uptime 필드는 서버가 얼마나 오래 열려 있었는지 나타내므로, 이런 정보는 
+주기적으로 업데이트 할 수 있습니다.
+
+setInterval(refreshServerInfo, 1000);
+
+MDN XMLHttpRequest 문서: https://goo.gl/r0iyR

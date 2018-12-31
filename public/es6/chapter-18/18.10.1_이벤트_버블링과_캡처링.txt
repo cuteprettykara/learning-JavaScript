@@ -1,0 +1,77 @@
+이벤트 핸들러에는 다른 핸들러가 어떻게 호출될지 영향을 주는 세 가지 방법이 있습니다.
+1. preventDefault() 
+   이 메소드는 기본 핸들러의 이벤트를 취소합니다.
+   취소된 이벤트는 [계속 전달되기는 하지만], defaultPrevented 프로퍼티가 true로 바뀐 채 전달됩니다.
+
+2. stopPropagation()
+   이 메소드는 이벤트를 현재 요소에서 끝내고 [더는 전달되지 않게] 막습니다.
+   즉, [해당 요소에 연결된 이벤트 핸들러는 동작]하지만, 다른 요소에 연결된 이벤트 핸들러는 동작하지 않습니다.
+
+3. stopImmediatePropagation()
+   가장 강력합니다.
+   다른 이벤트 핸들러, 심지어 현재 요소에 연결된 이벤트 핸들러도 동작하지 않게 막습니다.
+
+[event.html]
+
+=> 버튼을 클릭하면 콘솔에 다음과 같은 내용이 출력됩니다.
+capture: BODY
+capture: DIV
+capture: BUTTON
+bubble: BUTTON
+bubble: DIV
+bubble: BODY
+
+캡처링이 먼저 시작되고,그 후에 버블링이 이어지는 걸 확인할 수 있습니다.
+[이벤트가 실제 일어난 요소], 즉 버튼에서는 핸들러가 캡처링 다음 버블링이라는 일반적인 순서를 무시하고,
+[추가된 순서대로] 실행됩니다.
+
+
+이제 <div>의 캡처 단계에서 이벤트를 [취소]해 봅시다.
+    addEventLogger(body, 'capture');
+    addEventLogger(body, 'bubble');
+    addEventLogger(div, 'capture', cancel);
+    addEventLogger(div, 'bubble');
+    addEventLogger(button, 'capture');
+    addEventLogger(button, 'bubble');
+
+=> 이벤트 전달은 계속되지만, 이벤트가 취소됐다고 기록된 걸 볼 수 있습니다.
+capture: BODY
+capture: DIV (canceled)
+capture: BUTTON (canceled)
+bubble: BUTTON (canceled)
+bubble: DIV (canceled)
+bubble: BODY (canceled) 
+
+
+이제 버튼의 캡처 단계에서 이벤트 전달을 [중지]해 봅시다.
+    addEventLogger(body, 'capture');
+    addEventLogger(body, 'bubble');
+    addEventLogger(div, 'capture', 'cancel');
+    addEventLogger(div, 'bubble');
+    addEventLogger(button, 'capture', 'stop');
+    addEventLogger(button, 'bubble');
+
+=> 버튼 요소에서 이벤트 전달이 멈추는 걸 볼 수 있습니다.
+   캡처링까지 진행하고 멈추게 했지만, 버튼의 버블링 이벤트는 여전히 발생합니다.
+   하지만 <div>와 <body>요소는 이벤트 버블링을 받지 못합니다.
+capture: BODY
+capture: DIV (canceled)
+capture: BUTTON (canceled)
+bubble: BUTTON (canceled)
+
+
+마지막으로, 버튼의 캡처 단계에서 [즉시 멈추게] 만들어 봅시다.
+    addEventLogger(body, 'capture');
+    addEventLogger(body, 'bubble');
+    addEventLogger(div, 'capture', 'cancel');
+    addEventLogger(div, 'bubble');
+    addEventLogger(button, 'capture', 'stop!');
+    addEventLogger(button, 'bubble');
+
+=> 이제 버튼의 캡처 단계에서 이벤트 전달이 완전히 멈췄고, 이후로는 아무 일도 일어나지 않습니다.
+capture: BODY
+capture: DIV (canceled)
+capture: BUTTON (canceled)
+
+// 제이쿼리 이벤트 리스너에서 명시적으로 false를 반환한ㄴ 것은 stopPropagation을 호출하는 것과 동등한 
+// 효과가 있습니다. 
