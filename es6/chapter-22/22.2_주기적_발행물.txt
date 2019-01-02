@@ -1,0 +1,5 @@
+다음 세 가지는 반드시 구독하고 매주 의무적으로 읽어야 합니다.
+
+* JavaScript Weekly(http://javascriptweekly.com)
+* Node Weekly(http://nodeweekly.com)
+* HTML5 Weekly(http://html5weekly.com)

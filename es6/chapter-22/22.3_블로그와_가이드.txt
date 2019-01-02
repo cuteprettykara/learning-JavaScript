@@ -1,0 +1,9 @@
+아직 뭔가 기본적인 것을 놓친 기분이 들거나, 기초를 더 확실히 연습하고 싶다면 다음을 추천합니다.
+
+* http://bit.ly/lynda_js_training
+
+* https://teamtreehouse.com/learn/javascript
+
+* https://www.codeacademy.com/learn/javascript
+
+* http://bit.ly/ms_js_intro
