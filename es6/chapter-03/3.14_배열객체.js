@@ -9,3 +9,5 @@
 // 1. 배열 크기는 고정되지 않습니다. 언제든 요소의 추가/제거가 가능
 // 2. 요소의 데이터 타입을 가리지 않습니다.
 // 3. 배열 요소는 0으로 시작합니다.
+// 4. Since JavaScript arrays are objects, elements can be deleted by using the JavaScript operator delete
+//    => Using delete may leave undefined holes in the array.

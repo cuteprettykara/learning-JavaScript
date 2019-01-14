@@ -11,11 +11,11 @@
 // 아래 표현식은 모두 동등한 한 쌍입니다.
 const f1 = function() { return "hello!"; }
 // 또는
-const f1 = () => "hello!";
+// const f1 = () => "hello!";
 
 const f2 = function(name) { return `Hello, ${name}!`; }
 // 또는
-const f2 = name =>  `Hello, ${name}!`;
+// const f2 = name =>  `Hello, ${name}!`;
 
 
 // 화살표 함수는 단순히 function 키워드와 괄호 등을 생략하는 단축 문법에 그치치 않으며,
@@ -30,6 +30,8 @@ const o = {
     name: "Julie",
     greetBackwards: function() {
         const getReverseName = () => {
+            console.dir(this);  // { name: 'Julie', greetBackwards: [Function: greetBackwards] }
+
             let nameBackwards = '';
             for (let i = this.name.length-1; i >= 0; i--) {
                 nameBackwards += this.name[i];          
@@ -41,7 +43,27 @@ const o = {
     },
 };
 
+const p = {
+    name: "Delphy",
+    greetBackwards: function() {
+        const getReverseName = function() {
+            console.dir(this);  // Object [global] { ... }
+            this.name = "sangbum";
+
+            let nameBackwards = '';
+            for (let i = this.name.length-1; i >= 0; i--) {
+                nameBackwards += this.name[i];          
+            }
+            return nameBackwards;
+        };
+
+        return `${getReverseName()} si eman ym ,olleH`;
+    },
+};
+
+
 console.log(o.greetBackwards());    // "eiluJ si eman ym ,olleH"
+console.log(p.greetBackwards());    // "eiluJ si eman ym ,olleH"
 
 // 화살표 함수에는 일반적인 함수와 다른 점이 2가지 더 있습니다.
 // 1. 객체 생성자로 사용할 수 없다.
